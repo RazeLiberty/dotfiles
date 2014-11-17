@@ -1,0 +1,21 @@
+[user]
+	name = RazeLiberty
+	email = battledroid@outlook.jp
+
+[core]
+    	excludesfile = /Users/Raze/.gitignore
+	editor = vim
+	precomposeunicode = true
+	quotepath = false
+
+[color]
+    	ui = true
+
+[alias]
+	co   = checkout
+	cm   = commit
+	br   = branch
+	rv   = remote -v
+	ru   = remote update
+	rhd  = reset --hard
+																	
