@@ -1,0 +1,9 @@
+# vim
+*~
+*.swp
+
+# mac
+.DS_Store
+
+# xcode
+*.xcodeproj/*
