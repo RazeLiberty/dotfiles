@@ -28,3 +28,6 @@
 [merge "mergepbx"]
   name = XCode project files merger
   driver = mergepbx %O %A %B
+
+[diff]
+	tool = vimdiff
