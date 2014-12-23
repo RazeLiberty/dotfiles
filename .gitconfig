@@ -10,7 +10,7 @@
 	quotepath = false
 
 [color]
-    	ui = true
+    	ui = auto
 
 [alias]
 	co   = checkout
