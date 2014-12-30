@@ -3,9 +3,12 @@
 *.swp
 
 # mac
-.DS_Store
+*.DS_Store
 
 # xcode
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+
 build/
 *.pbxuser
 !default.pbxuser
