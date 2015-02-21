@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/Raze/cocos2d-x/cocos2d-x-3.2/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/Users/HappyPrince/cocos2d-x/cocos2d-x-3.2/tools/cocos2d-console/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
