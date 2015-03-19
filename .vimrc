@@ -72,7 +72,7 @@ NeoBundleCheck
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <C-t> gt
 nnoremap <C-p> gT 
-nnoremap <C-w> :closetab
+nnoremap <C-c> :closetab
 " 隠しファイルを表示する
 let NERDTreeShowHidden = 1
 "引数なしで実行したとき、NERDTreeを実行する
