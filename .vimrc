@@ -68,6 +68,9 @@ NeoBundleCheck
 " NERDTree
 "----------------------------------------------------
 
+"Ctrl+e start nerdtreetoggle
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
 " 隠しファイルを表示する
 let NERDTreeShowHidden = 1
 "引数なしで実行したとき、NERDTreeを実行する
