@@ -38,9 +38,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
+	NeoBundle 'Shougo/unite.vim'
 	"NeoBundle 'Shougo/vimproc' "非同期実行可能になる
 	"NeoBundle 'Shougo/neocomplete' "補完
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
+	
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
 	NeoBundle 'taichouchou2/surround.vim'	"vimのテキストオブジェクトを拡張
@@ -48,7 +50,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	NeoBundle 'tell-k/vim-browsereload-mac'	"保存時ブラウザ自動更新
 	NeoBundle 'hail2u/vim-css3-syntax'	"syntax
 	NeoBundle 'lilydjwg/colorizer' "hex color display
-	NeoBundle 'taichouchou2/vim-javascript'
+	"NeoBundle 'taichouchou2/vim-javascript'
 	NeoBundle 'taichouchou2/html5.vim'
     
 call neobundle#end()
@@ -70,11 +72,14 @@ NeoBundleCheck
 
 "Ctrl+e start nerdtreetoggle
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <C-t> gt
-nnoremap <C-p> gT 
-nnoremap <C-c> :closetab
+"nnoremap <C-t> gt
+"nnoremap <C-p> gT 
+"nnoremap <silent><C-c> :closetab
+
+
 " 隠しファイルを表示する
 let NERDTreeShowHidden = 1
+
 "引数なしで実行したとき、NERDTreeを実行する
 let file_name = expand("%:p")
 if has('vim_starting') &&  file_name == ""
