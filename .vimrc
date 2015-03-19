@@ -38,8 +38,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
-	NeoBundle 'Shougo/vimproc' "非同期実行可能になる
-	NeoBundle 'Shougo/neocomplete' "補完
+	"NeoBundle 'Shougo/vimproc' "非同期実行可能になる
+	"NeoBundle 'Shougo/neocomplete' "補完
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
