@@ -2,9 +2,14 @@ colorizer
 emmet-vim
 html5.vim
 neobundle.vim
+neocomplete.vim
 nerdtree
 open-browser.vim
+sass-compile.vim
+search-parent.vim
 surround.vim
+unite.vim
 vim-browsereload-mac
 vim-css3-syntax
 vim-javascript
+vimproc

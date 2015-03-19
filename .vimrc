@@ -39,18 +39,20 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
 	NeoBundle 'Shougo/unite.vim'
-	"NeoBundle 'Shougo/vimproc' "非同期実行可能になる
-	"NeoBundle 'Shougo/neocomplete' "補完
+	NeoBundle 'Shougo/vimproc' "非同期実行可能になる
+	NeoBundle 'Shougo/neocomplete.vim' "補完
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
 	
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
-	NeoBundle 'taichouchou2/surround.vim'	"vimのテキストオブジェクトを拡張
+	NeoBundle 'surround.vim'	"vimのテキストオブジェクトを拡張
 	NeoBundle 'open-browser.vim'	"open URL and can search
 	NeoBundle 'tell-k/vim-browsereload-mac'	"保存時ブラウザ自動更新
 	NeoBundle 'hail2u/vim-css3-syntax'	"syntax
 	NeoBundle 'lilydjwg/colorizer' "hex color display
-	"NeoBundle 'taichouchou2/vim-javascript'
+    NeoBundle 'AtsushiM/search-parent.vim'
+	NeoBundle 'AtsushiM/sass-compile.vim'
+	NeoBundle 'vim-javascript'
 	NeoBundle 'taichouchou2/html5.vim'
     
 call neobundle#end()
@@ -65,6 +67,27 @@ NeoBundleCheck
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
+"-------------------------------
+"" emmet-vim
+"-------------------------------
+let g:user_emmet_settings = {
+    \    'variables': {
+    \      'lang': "ja"
+    \    },
+    \   'indentation': '  '
+    \ }
+
+"------------------------------------
+"" sass
+"------------------------------------
+"""{{{
+let g:sass_compile_auto = 1
+let g:sass_compile_cdloop = 5
+let g:sass_compile_cssdir = ['css', 'stylesheet']
+let g:sass_compile_file = ['scss', 'sass']
+let g:sass_compile_beforecmd = ''
+let g:sass_compile_aftercmd = ''
+"}}}
 
 "----------------------------------------------------
 " NERDTree
