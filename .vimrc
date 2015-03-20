@@ -88,8 +88,19 @@ let g:sass_compile_file = ['scss', 'sass']
 let g:sass_compile_beforecmd = ''
 let g:sass_compile_aftercmd = ''
 "}}}
+"------------------------------------
+"" vim-browsereload-mac
+"------------------------------------
+let g:returnApp = "iTerm"
 
-"----------------------------------------------------
+"------------------------------------
+"" open-browser
+"------------------------------------
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+"---------------------------------------------------
 " NERDTree
 "----------------------------------------------------
 
