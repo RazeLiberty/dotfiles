@@ -39,7 +39,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
 	NeoBundle 'Shougo/unite.vim'
-	NeoBundle 'Shougo/vimproc' "非同期実行可能になる
+	NeoBundle 'Shougo/vimproc.vim', {
+							\ 'build' : {
+							\     'windows' : 'tools\\update-dll-mingw',
+							\     'cygwin' : 'make -f make_cygwin.mak',
+							\     'mac' : 'make -f make_mac.mak',
+							\     'linux' : 'make',
+							\     'unix' : 'gmake',
+							\    },
+							\ }
 	NeoBundle 'Shougo/neocomplete.vim' "補完
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
 	
@@ -88,8 +96,19 @@ let g:sass_compile_file = ['scss', 'sass']
 let g:sass_compile_beforecmd = ''
 let g:sass_compile_aftercmd = ''
 "}}}
+"------------------------------------
+"" vim-browsereload-mac
+"------------------------------------
+let g:returnApp = "iTerm"
 
-"----------------------------------------------------
+"------------------------------------
+"" open-browser
+"------------------------------------
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+"---------------------------------------------------
 " NERDTree
 "----------------------------------------------------
 
@@ -108,3 +127,9 @@ let file_name = expand("%:p")
 if has('vim_starting') &&  file_name == ""
 		  autocmd VimEnter * execute 'NERDTree ./'
 		  endif
+
+"----------------------------------    -----------------
+" browser auto reload command
+"----------------------------------    ------------------
+imap <C-G> <ESC>:w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>a
+nmap <C-G> :w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>
