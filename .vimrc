@@ -19,11 +19,13 @@ set smartcase "検索文字列に大文字が含まれている場合は区別�
 set wrapscan "検索時に最後まで行ったら最初に戻る
 
 "カラースキーマを設定
-colorscheme solarized
-let g:solarized_termcolors=256
+"colorscheme solarized
+"let g:solarized_termcolors=256
+"syntax on
+"set background=dark
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 syntax on
-set background=dark
-
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
@@ -39,6 +41,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
 	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/neomru.vim'
 	NeoBundle 'Shougo/vimproc.vim', {
 							\ 'build' : {
 							\     'windows' : 'tools\\update-dll-mingw',
@@ -48,14 +51,16 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 							\     'unix' : 'gmake',
 							\    },
 							\ }
-	NeoBundle 'Shougo/neocomplete.vim' "補完
+	NeoBundle 'Shougo/neocomplcache.vim' "補完
+	NeoBundle 'Shougo/neosnippet'
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'itchyny/lightline.vim'
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
 	
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
 	NeoBundle 'surround.vim'	"vimのテキストオブジェクトを拡張
 	NeoBundle 'open-browser.vim'	"open URL and can search
-	NeoBundle 'tell-k/vim-browsereload-mac'	"保存時ブラウザ自動更新
 	NeoBundle 'hail2u/vim-css3-syntax'	"syntax
 	NeoBundle 'lilydjwg/colorizer' "hex color display
     NeoBundle 'AtsushiM/search-parent.vim'
@@ -133,3 +138,8 @@ if has('vim_starting') &&  file_name == ""
 "----------------------------------    ------------------
 imap <C-G> <ESC>:w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>a
 nmap <C-G> :w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>
+
+"----------------------------------    -----------------
+" unite
+"-------------------------------------------------------
+"
