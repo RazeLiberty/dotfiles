@@ -2,7 +2,8 @@ set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
 syntax on "コードの色分け
-set tabstop=4 "インデントをスペース4つ分に設定
+set tabstop=2 "インデントをスペース4つ分に設定
+set shiftwidth=2 "自動インデントでずれる幅
 set smartindent "オートインデント
 set cursorline     " カーソル行の背景色を変える
 set cursorcolumn   " カーソル位置のカラムの背景色を変える
@@ -12,6 +13,9 @@ set cursorcolumn   " カーソル位置のカラムの背景色を変える
 set confirm    " 保存されていないファイルがあるときは終了前に保存確認
 set hidden     " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
 
+"html閉じタグ補完 </
+autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
+
 "#####検索設定#####
 set hlsearch   " 検索文字列をハイライトする
 set ignorecase "大文字/小文字の区別なく検索する
@@ -19,11 +23,13 @@ set smartcase "検索文字列に大文字が含まれている場合は区別�
 set wrapscan "検索時に最後まで行ったら最初に戻る
 
 "カラースキーマを設定
-colorscheme solarized
-let g:solarized_termcolors=256
+"colorscheme solarized
+"let g:solarized_termcolors=256
+"syntax on
+"set background=dark
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 syntax on
-set background=dark
-
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
@@ -39,6 +45,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
 	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/neomru.vim'
 	NeoBundle 'Shougo/vimproc.vim', {
 							\ 'build' : {
 							\     'windows' : 'tools\\update-dll-mingw',
@@ -48,17 +55,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 							\     'unix' : 'gmake',
 							\    },
 							\ }
-	NeoBundle 'Shougo/neocomplete.vim' "補完
+	NeoBundle 'Shougo/neocomplcache.vim' "補完
+	NeoBundle 'Shougo/neosnippet'
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'itchyny/lightline.vim'
 	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
 	
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
 	NeoBundle 'surround.vim'	"vimのテキストオブジェクトを拡張
 	NeoBundle 'open-browser.vim'	"open URL and can search
-	NeoBundle 'tell-k/vim-browsereload-mac'	"保存時ブラウザ自動更新
 	NeoBundle 'hail2u/vim-css3-syntax'	"syntax
 	NeoBundle 'lilydjwg/colorizer' "hex color display
-    NeoBundle 'AtsushiM/search-parent.vim'
+  NeoBundle 'AtsushiM/search-parent.vim'
 	NeoBundle 'AtsushiM/sass-compile.vim'
 	NeoBundle 'vim-javascript'
 	NeoBundle 'taichouchou2/html5.vim'
@@ -133,3 +142,27 @@ if has('vim_starting') &&  file_name == ""
 "----------------------------------    ------------------
 imap <C-G> <ESC>:w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>a
 nmap <C-G> :w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scpt<CR><CR>
+
+"----------------------------------    -----------------
+" unite
+"-------------------------------------------------------
+"-------------------------------------------
+"html.vim
+"-------------------------------------------
+let g:html5_event_handler_attributes_complete = 1
+let g:html5_rdfa_attributes_complete = 1
+let g:html5_microdata_attributes_complete = 1
+let g:html5_aria_attributes_complete = 1
+"-------------------------------------------
+"neocomplcache
+"-------------------------------------------
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
+"候補確定
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
