@@ -1,12 +1,13 @@
 colorizer
 emmet-vim
+endtagcomment.vim
 html5.vim
 lightline.vim
 neobundle.vim
 neocomplcache.vim
 neomru.vim
 neosnippet
-neosnippet-snippet
+neosnippet-snippets
 nerdtree
 open-browser.vim
 sass-compile.vim

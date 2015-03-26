@@ -2,7 +2,8 @@ set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
 syntax on "コードの色分け
-set tabstop=4 "インデントをスペース4つ分に設定
+set tabstop=2 "インデントをスペース4つ分に設定
+set shiftwidth=2 "自動インデントでずれる幅
 set smartindent "オートインデント
 set cursorline     " カーソル行の背景色を変える
 set cursorcolumn   " カーソル位置のカラムの背景色を変える
@@ -11,6 +12,9 @@ set cursorcolumn   " カーソル位置のカラムの背景色を変える
 
 set confirm    " 保存されていないファイルがあるときは終了前に保存確認
 set hidden     " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
+
+"html閉じタグ補完 </
+autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 
 "#####検索設定#####
 set hlsearch   " 検索文字列をハイライトする
@@ -63,7 +67,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	NeoBundle 'open-browser.vim'	"open URL and can search
 	NeoBundle 'hail2u/vim-css3-syntax'	"syntax
 	NeoBundle 'lilydjwg/colorizer' "hex color display
-    NeoBundle 'AtsushiM/search-parent.vim'
+  NeoBundle 'AtsushiM/search-parent.vim'
 	NeoBundle 'AtsushiM/sass-compile.vim'
 	NeoBundle 'vim-javascript'
 	NeoBundle 'taichouchou2/html5.vim'
@@ -142,4 +146,23 @@ nmap <C-G> :w<CR>:!osascript /Users/HappyPrince/dotfiles/.vim/reload_browser.scp
 "----------------------------------    -----------------
 " unite
 "-------------------------------------------------------
-"
+"-------------------------------------------
+"html.vim
+"-------------------------------------------
+let g:html5_event_handler_attributes_complete = 1
+let g:html5_rdfa_attributes_complete = 1
+let g:html5_microdata_attributes_complete = 1
+let g:html5_aria_attributes_complete = 1
+"-------------------------------------------
+"neocomplcache
+"-------------------------------------------
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
+"候補確定
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
