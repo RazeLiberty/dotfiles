@@ -7,12 +7,16 @@ neocomplcache.vim
 neomru.vim
 neosnippet
 neosnippet-snippets
-nerdtree
+nerdcommenter
 open-browser.vim
 sass-compile.vim
 search-parent.vim
 surround.vim
 unite.vim
 vim-css3-syntax
+vim-fugitive
+vim-indent-guides
 vim-javascript
+vim-matchit
+vimfiler
 vimproc.vim

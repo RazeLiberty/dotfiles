@@ -86,6 +86,10 @@ export PATH=$COCOS_CONSOLE_ROOT:$PATH
 #MySQL
 export PATH=$PATH:/Applications/XAMPP/xamppfiles/bin
 
+#gerbv
+export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
+export MANPATH=/opt/local/man:$MANPATH
+
 # Add environment variable NDK_ROOT for cocos2d-x
 export NDK_ROOT=/Android/ndk
 export PATH=$NDK_ROOT:$PATH
