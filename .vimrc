@@ -44,7 +44,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	
 	"---plugins---
 	NeoBundle 'Shougo/neobundle.vim'     " バンドル管理ツール
+	NeoBundle 'Shougo/neocomplcache.vim' "補完
+	NeoBundle 'Shougo/neosnippet'
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'Shougo/vimfiler'
 	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'nathanaelkane/vim-indent-guides'
+	NeoBundle 'tpope/vim-fugitive'
+	NeoBundle 'scrooloose/nerdcommenter'
 	NeoBundle 'Shougo/neomru.vim'
 	NeoBundle 'Shougo/vimproc.vim', {
 							\ 'build' : {
@@ -55,12 +62,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 							\     'unix' : 'gmake',
 							\    },
 							\ }
-	NeoBundle 'Shougo/neocomplcache.vim' "補完
-	NeoBundle 'Shougo/neosnippet'
-	NeoBundle 'Shougo/neosnippet-snippets'
 	NeoBundle 'itchyny/lightline.vim'
-	NeoBundle 'scrooloose/nerdtree'	"ディレクトリツリー
-	
 	"-- web coding --
 	NeoBundle 'mattn/emmet-vim'	"zen coding
 	NeoBundle 'surround.vim'	"vimのテキストオブジェクトを拡張
@@ -117,26 +119,26 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-"---------------------------------------------------
-" NERDTree
-"----------------------------------------------------
-
-"Ctrl+e start nerdtreetoggle
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
-"nnoremap <C-t> gt
-"nnoremap <C-p> gT 
-"nnoremap <silent><C-c> :closetab
-
-
-" 隠しファイルを表示する
-let NERDTreeShowHidden = 1
-
-"引数なしで実行したとき、NERDTreeを実行する
-let file_name = expand("%:p")
-if has('vim_starting') &&  file_name == ""
-		  autocmd VimEnter * execute 'NERDTree ./'
-		  endif
-
+""---------------------------------------------------
+"" NERDTree
+""----------------------------------------------------
+"
+""Ctrl+e start nerdtreetoggle
+"nnoremap <silent><C-n> :NERDTreeToggle<CR>
+""nnoremap <C-t> gt
+""nnoremap <C-p> gT 
+""nnoremap <silent><C-c> :closetab
+"
+"
+"" 隠しファイルを表示する
+"let NERDTreeShowHidden = 1
+"
+""引数なしで実行したとき、NERDTreeを実行する
+"let file_name = expand("%:p")
+"if has('vim_starting') &&  file_name == ""
+"		autocmd VimEnter * execute 'NERDTree ./'
+"		endif
+"
 "----------------------------------    -----------------
 " browser auto reload command
 "----------------------------------    ------------------
