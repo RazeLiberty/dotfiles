@@ -27,9 +27,14 @@ set wrapscan "検索時に最後まで行ったら最初に戻る
 "let g:solarized_termcolors=256
 "syntax on
 "set background=dark
-let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid
+"let g:hybrid_use_iTerm_colors = 1
+"colorscheme hybrid
+"syntax on
+"colorscheme lucius
+"colorscheme gruvbox
+colorscheme molokai
 syntax on
+set t_Co=256
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
@@ -47,7 +52,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	NeoBundle 'Shougo/neocomplcache.vim' "補完
 	NeoBundle 'Shougo/neosnippet'
 	NeoBundle 'Shougo/neosnippet-snippets'
-	NeoBundle 'Shougo/vimfiler'
+	NeoBundle 'scrooloose/nerdtree'
+"	NeoBundle 'Shougo/vimfiler'
 	NeoBundle 'Shougo/unite.vim'
 	NeoBundle 'nathanaelkane/vim-indent-guides'
 	NeoBundle 'tpope/vim-fugitive'
@@ -122,23 +128,23 @@ vmap gx <Plug>(openbrowser-smart-search)
 ""---------------------------------------------------
 "" NERDTree
 ""----------------------------------------------------
-"
-""Ctrl+e start nerdtreetoggle
-"nnoremap <silent><C-n> :NERDTreeToggle<CR>
-""nnoremap <C-t> gt
-""nnoremap <C-p> gT 
-""nnoremap <silent><C-c> :closetab
-"
-"
-"" 隠しファイルを表示する
-"let NERDTreeShowHidden = 1
-"
-""引数なしで実行したとき、NERDTreeを実行する
-"let file_name = expand("%:p")
-"if has('vim_starting') &&  file_name == ""
-"		autocmd VimEnter * execute 'NERDTree ./'
-"		endif
-"
+
+"Ctrl+e start nerdtreetoggle
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
+"nnoremap <C-t> gt
+"nnoremap <C-p> gT 
+"nnoremap <silent><C-c> :closetab
+
+
+" 隠しファイルを表示する
+let NERDTreeShowHidden = 1
+
+"引数なしで実行したとき、NERDTreeを実行する
+let file_name = expand("%:p")
+if has('vim_starting') &&  file_name == ""
+		autocmd VimEnter * execute 'NERDTree ./'
+		endif
+
 "----------------------------------    -----------------
 " browser auto reload command
 "----------------------------------    ------------------
