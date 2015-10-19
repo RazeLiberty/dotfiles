@@ -8,6 +8,7 @@ neomru.vim
 neosnippet
 neosnippet-snippets
 nerdcommenter
+nerdtree
 open-browser.vim
 sass-compile.vim
 search-parent.vim
@@ -17,6 +18,4 @@ vim-css3-syntax
 vim-fugitive
 vim-indent-guides
 vim-javascript
-vim-matchit
-vimfiler
 vimproc.vim

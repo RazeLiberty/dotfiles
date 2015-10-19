@@ -1,4 +1,5 @@
 export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:/opt/local/bin
 
 #MySQL
 export PATH=$PATH:/Applications/XAMPP/xamppfiles/bin
